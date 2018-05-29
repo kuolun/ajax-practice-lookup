@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Reg checker</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>查詢是否報名時光屋成功</p>
+    <input v-model:value="email" type="text" placeholder="請輸入報名email">
+    <button @click="checkSignUp(email)">查詢</button>
+    <div v-if="success">
+      <p>您輸入的email是{{email}}</p>
+      <p>恭喜！{{name}},您已於{{time}}報名精神時光屋成功！</p>
+    </div>
+    <div v-else>
+      <p>{{result}}</p>
+    </div>
+
+    <hr>
+    <button @click="checkTotalReg()">查詢報名人數</button>
+    <div v-if="total">
+      <p>目前共有{{total}}人報名囉！！</p>
+    </div>
+
+  </div>
+
+  <!-- 轉換時間library -->
+  <script src="https://momentjs.com/downloads/moment.js"></script>
+  <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+
+  <!-- AJAX library -->
+  <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

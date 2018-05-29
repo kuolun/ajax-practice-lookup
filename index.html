@@ -5,35 +5,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- Custom styles for this template -->
+  <link href="cover.css" rel="stylesheet">
   <title>Reg checker</title>
 </head>
 
-<body style="background-color: #DC9FB4">
+<body>
+  <h1>前端時光精神屋</h1>
   <div id="app" class="container">
-    <h3>查詢是否報名時光屋成功</h3>
-    <input v-model:value="email" type="email" placeholder="請輸入報名email">
-    <button @click="checkSignUp(email)" class="btn btn-primary btn-sm">查詢</button>
-    <div v-if="success===true">
-      <h3>您輸入的email是{{email}}</h3>
-      <h3>恭喜！{{name}},您已於{{time}}報名精神時光屋成功！</h3>
-    </div>
-    <div v-else-if="success==='loading'">
-      <img src="./loading.gif" width="100">
-    </div>
-    <div v-else>
-      <h3>{{result}}</h3>
-    </div>
+    <form class="form-signin">
+      <h3 class="form-signin-heading">是否報名成功</h3>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input v-model:value="email" type="email" placeholder="Email address" class="form-control" required autofocus>
+      <button @click.prevent="checkSignUp(email)" class="btn btn-lg btn-primary btn-block">查詢</button>
+      <div v-if="success===true">
+        <h4>您輸入的email是{{email}}</h4>
+        <h4>恭喜！您已報名成功！</h4>
+        <h4>姓名：{{name}}</h4>
+        <h4>報名時間：{{time}}</h4>
+      </div>
+      <div v-else-if="success==='loading'">
+        <img src="./loading.gif" width="100">
+      </div>
+      <div v-else>
+        <h3>{{result}}</h3>
+      </div>
+    </form>
+
 
     <hr>
-    <button @click="checkTotalReg()" class="btn btn-primary btn-sm">查詢報名人數</button>
-    <div v-if="total">
-      <h3>目前共有{{total}}人報名囉！！</h3>
-    </div>
-    <div v-else-if="totalLoading===true">
-      <div>
-        <img src="./loading.gif" width="100">
+
+    <div class="form-signin">
+      <button @click="checkTotalReg()" class="btn btn-lg btn-primary btn-block">查詢報名人數</button>
+      <div v-if="total">
+        <h3>目前共有{{total}}人報名囉！！</h3>
+      </div>
+      <div v-else-if="totalLoading===true">
+        <div>
+          <img src="./loading.gif" width="100">
+        </div>
       </div>
     </div>
 

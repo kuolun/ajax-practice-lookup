@@ -12,7 +12,7 @@ var vm = new Vue({
     total: 0
   },
   methods: {
-    checkSignUp: function (email) {
+    checkSignUp(email) {
       vm.success = 'loading'
       axios.post('https://www.thef2e.com/api/isSignUp', {
         email: email
@@ -38,7 +38,7 @@ var vm = new Vue({
           vm.result = 'Error! Could not reach the API. ' + error.message
         })
     },
-    checkTotalReg: function () {
+    checkTotalReg() {
       vm.totalLoading = true;
       axios.get('https://www.thef2e.com/api/signUpTotal')
         .then(function (response) {

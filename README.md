@@ -5,9 +5,9 @@
 
 2.查詢目前報名人數
 
---Vue實作
---moment.js
---axios實作AJAX
+Vue實作
+moment.js
+axios實作AJAX
 
 
 時光屋是否報名成功的API
